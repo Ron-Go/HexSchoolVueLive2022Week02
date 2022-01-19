@@ -16,7 +16,7 @@ const app = createApp({
         };
     },
     created() {
-        this.checkLogin();
+        
     },
     methods: {
         
