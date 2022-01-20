@@ -25,15 +25,6 @@
                 @click.prevent="logging">登入</button>
             </form>
         </div>
-        <div class="d-flex justify-content-center mt-3">
-            <div class="col-3 d-flex flex-column align-items-center">
-                <div v-if="signinStatus === 1"  class="spinner-grow text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <p v-else-if="signinStatus === 2" class="text-primary">登入成功</p>
-                <p v-else-if="signinStatus === 3" class="text-danger">登入失敗，請檢查帳號、密碼</p>
-            </div>
-        </div>
     </div>
 
     

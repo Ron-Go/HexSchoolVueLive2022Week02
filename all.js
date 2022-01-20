@@ -12,8 +12,6 @@ const app = createApp({
         username: "",
         password: "",
       },
-      signinStatus: 0,
-      // signinStatus => 0：無狀態 ; 1:登入讀取中 ; 2：登入成功 ; 3：登入失敗
     };
   },
   created() {
@@ -29,15 +27,12 @@ const app = createApp({
         const { token , expired } = res.data;
         // 把token、expired存入cookie
         document.cookie = `myToken = ${token}; expires = ${ new Date(expired) };`;
-        // .then取回成功的回傳資訊，signinStatus為登入成功
-        this.signinStatus = res.data.success === true ? 2 : 1;
-        // signinStatus為成功，跳頁到products.html
-        window.location = this.signinStatus === 2 ? 'products.html' : ' ';
+        // 跳頁到products.html
+        window.location = 'products.html';
       })
       .catch((err) => {
         console.dir(err);
-        // signinStatus為登入失敗
-        this.signinStatus = err.response.data.success === false ?  3 : 0;
+        alert('登 入 失 敗')
       })
     },
   },
@@ -71,6 +66,7 @@ app.component("products", {
         })
         .catch((err) => {
           console.dir(err);
+          window.location = 'login.html';
         });
       },
       // 取得商品資料
@@ -128,7 +124,7 @@ app.component("products", {
         .then((res) => {
           console.log(res);
           window.location = "login.html";
-          alert("你 已 登 出 頁 面");
+          alert('已 登 出');
         })
       }
     },
