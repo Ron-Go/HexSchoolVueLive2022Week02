@@ -110,7 +110,6 @@ app.component("products", {
       // 改變啟用狀態
       // 參數 => 傳入v-for渲染的item資料
       changeSwitch(product) {
-        console.log(product);
         if (product.is_enabled === 0) {
           product.is_enabled = 1;
         } else {
@@ -164,6 +163,7 @@ app.component("products", {
     </template>
     </tbody>
     </table>
+    <p>目前有{{ tempProducts.length }}項產品</p>
     `,
   });
   
